@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Valentine 💖</title>
+
+  <!-- Open Graph (for sharing preview on WhatsApp / Insta / iMessage) -->
+  <meta property="og:title" content="Will You Be My Valentine? 💘">
+  <meta property="og:description" content="A tiny love note made just for you 💕">
+  <meta property="og:type" content="website">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", "Comic Sans MS", cursive;
+      overflow: hidden;
+    }
+
+    .floating-heart {
+      position: absolute;
+      top: -20px;
+      font-size: 18px;
+      animation: floatDown linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes floatDown {
+      from { transform: translateY(-10vh); }
+      to { transform: translateY(110vh); }
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      max-width: 420px;
+      animation: pop 1s ease;
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.85); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .top-note {
+      font-size: 14px;
+      color: #ff7a9c;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .subtext {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #ffd6e0;
+      color: #ff4d6d;
+      position: relative;
+    }
+
+    .love-text {
+      margin-top: 25px;
+      font-size: 24px;
+      color: #ff4d6d;
+      display: none;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4d6d;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10vh) scale(1); opacity: 1; }
+      100% { transform: translateY(110vh) scale(0.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating background hearts -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const h = document.createElement("div");
+      h.className = "floating-heart";
+      h.innerHTML = "💗";
+      h.style.left = Math.random() * 100 + "vw";
+      h.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      document.body.appendChild(h);
+    }
+  </script>
+
+  <div class="card">
+    <div class="top-note">
+      💌 Every love story has a beginning — I’m glad this one is ours
+    </div>
+
+    <h1>Ankit, will you be my Valentine forever? 💘</h1>
+
+    <div class="subtext">
+      By next Valentine’s, we might be fiancés — so let’s make this one extra
+      special as just you and me, girlfriend and boyfriend.  
+      No rush, just love… and a lifetime to come 💍✨
+    </div>
+
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes 💖</button>
+      <button class="no" onclick="runAway(this)">No 🙈</button>
+    </div>
+
+    <div class="love-text" id="loveText">
+      I love you so much 💕
+    </div>
+  </div>
+
+  <script>
+    function sayYes() {
+      document.getElementById("loveText").style.display = "block";
+      createHearts();
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 100; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 22 + 14) + "px";
+        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+      }
+    }
+
+    function runAway(button) {
+      const x = Math.random() * 300 - 150;
+      const y = Math.random() * 200 - 100;
+      button.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+
+</body>
+</html>
