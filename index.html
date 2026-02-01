@@ -124,6 +124,15 @@
       0% { transform: translateY(-10vh) scale(1); opacity: 1; }
       100% { transform: translateY(110vh) scale(0.5); opacity: 0; }
     }
+
+    .future-text {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #888;
+  display: none;
+  line-height: 1.6;
+  animation: fadeIn 2s ease;
+}
   </style>
 </head>
 <body>
@@ -163,10 +172,22 @@
     </div>
   </div>
 
+  <div class="future-text" id="futureText">
+  If you’re reading this, it means you said yes — like you’ve done for more than six years now.
+
+  It’s been more than six years of choosing each other.
+  Through growing up, growing pains, long talks, silly fights, quiet understanding, and a kind of love that didn’t need proving.
+
+  Maybe by the time we look back at this, we’ll laugh at how far we’ve come, or smile at how sure we always were.
+  Wherever life takes us next, I we will always keep choosing each other — today, tomorrow, and every Valentine after this. 💕
+</div>
+
   <script>
     function sayYes() {
       document.getElementById("loveText").style.display = "block";
+      document.getElementById("futureText").style.display = "block";
       createHearts();
+      
     }
 
     function createHearts() {
